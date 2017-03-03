@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+  },
+
+  "frameworks": {
+    "netstandard1.4": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.1"
+      }
+    },
+    "net40": {
+
+    }
+  }
+}
