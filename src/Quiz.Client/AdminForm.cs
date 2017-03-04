@@ -1,4 +1,6 @@
 ﻿using MetroFramework.Forms;
+using Quiz.Common.Models;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +17,8 @@ namespace Quiz.Client
         public AdminForm()
         {
             InitializeComponent();
+            QuestionsDataGrid.DataSource = client.Execute<List<Question>>(new RestRequest("questions")).Data;
         }
 
-        private void metroTextBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
