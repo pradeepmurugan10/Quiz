@@ -18,7 +18,7 @@ namespace Quiz.Client
         private Timer quizTimer = new Timer();
         private TimeSpan timeLeft;
         public Question CurrentQuestion { get; set; }
-        public QuestionsForm(IList<Question> questions, int quizTime)
+        public QuestionsForm(IEnumerable<Question> questions, int quizTime)
         {
             this.questions = questions;
             this.quizTime = quizTime;
@@ -32,13 +32,20 @@ namespace Quiz.Client
         private void QuizTimer_Tick(object sender, EventArgs e)
         {
             timeLeft = timeLeft.Subtract(new TimeSpan(0, 0, 1));
-            TimerLabel.Text = $"{(int)timeLeft.TotalMinutes} minutes left";
+            TimerLabel.Text = $"{Math.Round(timeLeft.TotalMinutes)} minutes left";
         }
 
         private void StartQuizButton_Click(object sender, EventArgs e)
         {
             quizTimer.Start();
             StartQuizButton.Enabled = false;
+            StartQuizButton.Visible = false;
+            QuestionLabel.Visible = true;
+            Choice1RadioButton.Visible =  true;
+            Choice2RadioButton.Visible = true;
+            Choice3RadioButton.Visible = true;
+            Choice4RadioButton.Visible = true;
         }
+
     }
 }
