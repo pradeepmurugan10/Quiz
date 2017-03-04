@@ -43,6 +43,7 @@
             this.LoginButton.TabIndex = 0;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseSelectable = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             //
             // RollNumberTextBox
             //
@@ -65,6 +66,7 @@
             this.RollNumberTextBox.MaxLength = 32767;
             this.RollNumberTextBox.Name = "RollNumberTextBox";
             this.RollNumberTextBox.PasswordChar = '\0';
+            this.RollNumberTextBox.PromptText = "Roll Number";
             this.RollNumberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.RollNumberTextBox.SelectedText = "";
             this.RollNumberTextBox.SelectionLength = 0;
@@ -99,6 +101,7 @@
             this.ServerIPTextBox.MaxLength = 32767;
             this.ServerIPTextBox.Name = "ServerIPTextBox";
             this.ServerIPTextBox.PasswordChar = '\0';
+            this.ServerIPTextBox.PromptText = "Exam Server IP Address";
             this.ServerIPTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.ServerIPTextBox.SelectedText = "";
             this.ServerIPTextBox.SelectionLength = 0;

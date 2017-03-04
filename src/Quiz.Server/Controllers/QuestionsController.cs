@@ -25,28 +25,24 @@ namespace Quiz.Server.Controllers
             return _db.GetCollection<Question>("questions").FindAll();
         }
 
-        // GET api/values/5
         [HttpGet("question/{id:guid}")]
         public Question Get(Guid id)
         {
             return _db.GetCollection<Question>("questions").FindById(id);
         }
 
-        // POST api/values
         [HttpPost("question")]
         public void Post([FromBody]Question question)
         {
             _db.GetCollection<Question>("questions").Upsert(question);
         }
 
-        // PUT api/values/5
         [HttpPut("question")]
         public void Put([FromBody]Question question)
         {
             _db.GetCollection<Question>("questions").Upsert(question);
         }
 
-        // DELETE api/values/5
         [HttpDelete("question/{id:guid}")]
         public void Delete(Guid id)
         {

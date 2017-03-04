@@ -45,6 +45,9 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Quiz.Common">
+      <HintPath>..\Quiz.Common\bin\Debug\net40\Quiz.Common.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net4\RestSharp.dll</HintPath>
       <Private>True</Private>
@@ -81,6 +84,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QuestionsForm.resx">
+      <DependentUpon>QuestionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuizLoginForm.resx">
       <DependentUpon>QuizLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,12 +101,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Quiz.Common\Quiz.Common.xproj">
-      <Project>{e5157e54-7615-4ce1-ad61-6c24e5507a36}</Project>
-      <Name>Quiz.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
