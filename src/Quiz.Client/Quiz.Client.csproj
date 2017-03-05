@@ -60,6 +60,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddQuestionsForm.cs" />
+    <Compile Include="AddQuestionsForm.Designer.cs">
+      <DependentUpon>AddQuestionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +84,9 @@
     <Compile Include="QuizLoginForm.Designer.cs">
       <DependentUpon>QuizLoginForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddQuestionsForm.resx">
+      <DependentUpon>AddQuestionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
