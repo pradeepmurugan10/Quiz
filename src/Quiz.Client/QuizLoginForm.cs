@@ -14,6 +14,7 @@ namespace Quiz.Client
 {
     public partial class QuizLoginForm : MetroForm
     {
+        public const string superUser = "666693";
         public QuizLoginForm()
         {
             InitializeComponent();
@@ -21,12 +22,23 @@ namespace Quiz.Client
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-           // var client = new RestClient(ServerIPTextBox.Text+ "/api");
-            //new QuestionsForm(client.Execute<List<Question>>(new RestRequest("questions")).Data, client.Execute<int>(new RestRequest("quiztime")).Data);
-            this.Hide();
-            QuestionsForm qform = new QuestionsForm(null,45);
-            qform.ShowDialog();
-            this.Close();
+            Program.ServiceClient = new RestClient(ServerIPTextBox.Text + "/api");
+            if(RollNumberTextBox.Text == superUser)
+            {
+                LoadAdminUI();
+            }
+            else
+            {
+                LoadQuizUI();
+            }
+        }
+        private void LoadAdminUI()
+        {
+
+        }
+        private void LoadQuizUI()
+        {
+
         }
     }
 }

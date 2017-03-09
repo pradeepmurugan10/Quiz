@@ -66,7 +66,9 @@
             this.RollNumberTextBox.MaxLength = 32767;
             this.RollNumberTextBox.Name = "RollNumberTextBox";
             this.RollNumberTextBox.PasswordChar = '\0';
+#pragma warning disable CS0618 // Type or member is obsolete
             this.RollNumberTextBox.PromptText = "Roll Number";
+#pragma warning restore CS0618 // Type or member is obsolete
             this.RollNumberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.RollNumberTextBox.SelectedText = "";
             this.RollNumberTextBox.SelectionLength = 0;
@@ -101,7 +103,9 @@
             this.ServerIPTextBox.MaxLength = 32767;
             this.ServerIPTextBox.Name = "ServerIPTextBox";
             this.ServerIPTextBox.PasswordChar = '\0';
+#pragma warning disable CS0618 // Type or member is obsolete
             this.ServerIPTextBox.PromptText = "Exam Server IP Address";
+#pragma warning restore CS0618 // Type or member is obsolete
             this.ServerIPTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.ServerIPTextBox.SelectedText = "";
             this.ServerIPTextBox.SelectionLength = 0;

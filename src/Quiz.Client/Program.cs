@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -6,6 +7,7 @@ namespace Quiz.Client
 {
     static class Program
     {
+        public static RestClient ServiceClient { get; set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -14,7 +16,7 @@ namespace Quiz.Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuizLoginForm());
+            Application.Run(new AddQuestionForm());
         }
     }
 }

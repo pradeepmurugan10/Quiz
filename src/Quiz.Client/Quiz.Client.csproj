@@ -52,6 +52,9 @@
       <HintPath>..\packages\RestSharp.105.2.3\lib\net4\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RestSharp.Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\Source\Repos\RestSharp.Newtonsoft.Json\RestSharp.Newtonsoft.Json\bin\Release\RestSharp.Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -60,9 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddQuestionsForm.cs" />
-    <Compile Include="AddQuestionsForm.Designer.cs">
-      <DependentUpon>AddQuestionsForm.cs</DependentUpon>
+    <Compile Include="AddQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddQuestionForm.Designer.cs">
+      <DependentUpon>AddQuestionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
@@ -84,8 +89,9 @@
     <Compile Include="QuizLoginForm.Designer.cs">
       <DependentUpon>QuizLoginForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddQuestionsForm.resx">
-      <DependentUpon>AddQuestionsForm.cs</DependentUpon>
+    <Compile Include="QuizRestClient.cs" />
+    <EmbeddedResource Include="AddQuestionForm.resx">
+      <DependentUpon>AddQuestionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>

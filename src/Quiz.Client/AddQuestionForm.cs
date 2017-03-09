@@ -8,23 +8,14 @@ using System.Text;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using Quiz.Common.Models;
-using LiteDB;
 
 namespace Quiz.Client
 {
-    public partial class AddQuestionsForm : MetroForm
+    public partial class AddQuestionForm : MetroForm
     {
-        private IEnumerable<Question> question;
-        private LiteDatabase _db;
-       
-        public AddQuestionsForm()
+        public AddQuestionForm()
         {
             InitializeComponent();
-
-        }
-        private void AddQuestion_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

@@ -17,8 +17,12 @@ namespace Quiz.Client
         public AdminForm()
         {
             InitializeComponent();
-            QuestionsDataGrid.DataSource = client.Execute<List<Question>>(new RestRequest("questions")).Data;
+           // QuestionsDataGrid.DataSource = client.Execute<List<Question>>(new RestRequest("questions")).Data;
         }
 
+        private void AddQuestionButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
