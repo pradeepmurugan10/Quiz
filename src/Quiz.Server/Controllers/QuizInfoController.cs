@@ -21,11 +21,10 @@ namespace Quiz.Server.Controllers
             return _db.GetCollection<int>("quiztime").FindAll().First();
         }
 
-        [HttpPut]
-        [HttpPost]
+        [HttpPost("quiztime")]
         public void Post([FromBody]int time)
         {
-            _db.GetCollection<int>("quiztime").Delete(x => true);
+            _db.GetCollection<int>("quiztime").Delete(_ => true);
             _db.GetCollection<int>("quiztime").Upsert(time);
         }
 
