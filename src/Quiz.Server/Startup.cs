@@ -29,7 +29,7 @@ namespace Quiz.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton(db => new LiteDatabase(Directory.GetCurrentDirectory()));
+            services.AddSingleton(db => new LiteDatabase(Directory.GetCurrentDirectory() + "/quiz.db"));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

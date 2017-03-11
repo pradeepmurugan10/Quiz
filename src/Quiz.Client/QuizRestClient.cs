@@ -19,6 +19,7 @@ namespace Quiz.Client
         public void SubmitResult(QuizData result)
         {
             var request = new RestSharp.Newtonsoft.Json.RestRequest("result", Method.POST);
+            request.RequestFormat = DataFormat.Json;
             request.AddBody(result);
             var response = innerClient.Execute(request);
             if (response.ErrorException != null)
@@ -29,6 +30,7 @@ namespace Quiz.Client
         public List<QuizData> GetResults()
         {
             var request = new RestSharp.Newtonsoft.Json.RestRequest("questions", Method.GET);
+            request.RequestFormat = DataFormat.Json;
             var response = innerClient.Execute<List<QuizData>>(request);
             if (response.ErrorException != null)
             {
@@ -42,6 +44,7 @@ namespace Quiz.Client
         public void UpdateTestDuration(TimeSpan testDuration)
         {
             var request = new RestSharp.Newtonsoft.Json.RestRequest($"quizinfo/quiztime/{Math.Round(testDuration.TotalMinutes)}", Method.POST);
+            request.RequestFormat = DataFormat.Json;
             var response = innerClient.Execute(request);
             if (response.ErrorException != null)
             {
@@ -51,6 +54,7 @@ namespace Quiz.Client
         public TimeSpan GetTestDuration()
         {
             var request = new RestSharp.Newtonsoft.Json.RestRequest("quizinfo/quiztime", Method.GET);
+            request.RequestFormat = DataFormat.Json;
             var response = innerClient.Execute<int>(request);
             if (response.ErrorException != null)
             {
@@ -64,6 +68,7 @@ namespace Quiz.Client
         public void AddQuestion(Question question)
         {
             var request = new RestSharp.Newtonsoft.Json.RestRequest("question", Method.POST);
+            request.RequestFormat = DataFormat.Json;
             request.AddBody(question);
             var response = innerClient.Execute(request);
             if (response.ErrorException != null)
@@ -74,6 +79,7 @@ namespace Quiz.Client
         public List<Question> GetQuestions()
         {
             var request = new RestSharp.Newtonsoft.Json.RestRequest("questions", Method.GET);
+            request.RequestFormat = DataFormat.Json;
             var response = innerClient.Execute<List<Question>>(request);
             if(response.ErrorException != null)
             {

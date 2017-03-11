@@ -10,6 +10,7 @@ namespace Quiz.Server
 {
     public class Program
     {
+        public static int QuizDuration { get; set; } = 45;
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()

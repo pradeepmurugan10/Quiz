@@ -10,22 +10,21 @@ namespace Quiz.Server.Controllers
     [Route("api/quizinfo")]
     public class QuizInfoController : Controller
     {
-        LiteDatabase _db;
-        public QuizInfoController(LiteDatabase db)
+       //LiteDatabase _db;
+        public QuizInfoController()
         {
-            _db = db;
+        //    _db = db;
         }
         [HttpGet("quiztime")]
         public int Get()
         {
-            return _db.GetCollection<int>("quiztime").FindAll().First();
+            return Program.QuizDuration;
         }
 
         [HttpPost("quiztime/{time:int}")]
         public void Post([FromRoute]int time)
         {
-            _db.GetCollection<int>("quiztime").Delete(_ => true);
-            _db.GetCollection<int>("quiztime").Upsert(time);
+            Program.QuizDuration = time;
         }
 
     }
