@@ -10,7 +10,7 @@ using Quiz.Common.Models;
 
 namespace Quiz.Server.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     public class QuestionsController : Controller
     {
         private LiteDatabase _db;

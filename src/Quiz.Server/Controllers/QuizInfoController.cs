@@ -7,7 +7,7 @@ using LiteDB;
 
 namespace Quiz.Server.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/quizinfo")]
     public class QuizInfoController : Controller
     {
         LiteDatabase _db;
@@ -21,8 +21,8 @@ namespace Quiz.Server.Controllers
             return _db.GetCollection<int>("quiztime").FindAll().First();
         }
 
-        [HttpPost("quiztime")]
-        public void Post([FromBody]int time)
+        [HttpPost("quiztime/{time:int}")]
+        public void Post([FromRoute]int time)
         {
             _db.GetCollection<int>("quiztime").Delete(_ => true);
             _db.GetCollection<int>("quiztime").Upsert(time);

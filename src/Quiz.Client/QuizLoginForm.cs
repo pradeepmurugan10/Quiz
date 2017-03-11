@@ -22,7 +22,8 @@ namespace Quiz.Client
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Program.ServiceClient = new RestClient(ServerIPTextBox.Text + "/api");
+            Program.ServiceClient = new QuizRestClient("http://" + ServerIPTextBox.Text);
+            Program.CurrentRollNumber = RollNumberTextBox.Text;
             if(RollNumberTextBox.Text == superUser)
             {
                 LoadAdminUI();
@@ -34,11 +35,13 @@ namespace Quiz.Client
         }
         private void LoadAdminUI()
         {
-
+            (new AdminForm()).Show();
+            Hide();
         }
         private void LoadQuizUI()
         {
-
+            (new QuestionsForm()).Show();
+            Hide();
         }
     }
 }

@@ -3,6 +3,7 @@ using RestSharp;
 using RestSharp.Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 
@@ -40,8 +41,7 @@ namespace Quiz.Client
         }
         public void UpdateTestDuration(TimeSpan testDuration)
         {
-            var request = new RestSharp.Newtonsoft.Json.RestRequest("quizinfo/quiztime", Method.POST);
-            request.AddBody(Math.Round(testDuration.TotalMinutes));
+            var request = new RestSharp.Newtonsoft.Json.RestRequest($"quizinfo/quiztime/{Math.Round(testDuration.TotalMinutes)}", Method.POST);
             var response = innerClient.Execute(request);
             if (response.ErrorException != null)
             {
@@ -63,7 +63,7 @@ namespace Quiz.Client
         }
         public void AddQuestion(Question question)
         {
-            var request = new RestSharp.Newtonsoft.Json.RestRequest("questions", Method.POST);
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("question", Method.POST);
             request.AddBody(question);
             var response = innerClient.Execute(request);
             if (response.ErrorException != null)

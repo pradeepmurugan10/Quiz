@@ -47,6 +47,7 @@
       <HintPath>..\..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Quiz.Common">
       <HintPath>..\Quiz.Common\bin\Release\net40\Quiz.Common.dll</HintPath>
     </Reference>

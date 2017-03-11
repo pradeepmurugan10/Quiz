@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Choice1 = new MetroFramework.Controls.MetroRadioButton();
             this.AddQuestionButton = new MetroFramework.Controls.MetroButton();
             this.Choice1TextBox = new MetroFramework.Controls.MetroTextBox();
             this.Choice2TextBox = new MetroFramework.Controls.MetroTextBox();
@@ -40,30 +39,22 @@
             this.Choice3RadioButton = new MetroFramework.Controls.MetroRadioButton();
             this.Choice4RadioButton = new MetroFramework.Controls.MetroRadioButton();
             this.SuspendLayout();
-            // 
-            // Choice1
-            // 
-            this.Choice1.AutoSize = true;
-            this.Choice1.Location = new System.Drawing.Point(23, 121);
-            this.Choice1.Name = "Choice1";
-            this.Choice1.Size = new System.Drawing.Size(16, 0);
-            this.Choice1.TabIndex = 3;
-            this.Choice1.UseSelectable = true;
-            // 
+            //
             // AddQuestionButton
-            // 
+            //
             this.AddQuestionButton.Location = new System.Drawing.Point(23, 240);
             this.AddQuestionButton.Name = "AddQuestionButton";
             this.AddQuestionButton.Size = new System.Drawing.Size(262, 23);
             this.AddQuestionButton.TabIndex = 7;
             this.AddQuestionButton.Text = "Update Database";
             this.AddQuestionButton.UseSelectable = true;
-            // 
+            this.AddQuestionButton.Click += new System.EventHandler(this.AddQuestionButton_Click);
+            //
             // Choice1TextBox
-            // 
-            // 
-            // 
-            // 
+            //
+            //
+            //
+            //
             this.Choice1TextBox.CustomButton.Image = null;
             this.Choice1TextBox.CustomButton.Location = new System.Drawing.Point(142, 1);
             this.Choice1TextBox.CustomButton.Name = "";
@@ -91,12 +82,12 @@
             this.Choice1TextBox.WaterMark = "Choice 1";
             this.Choice1TextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Choice1TextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
+            //
             // Choice2TextBox
-            // 
-            // 
-            // 
-            // 
+            //
+            //
+            //
+            //
             this.Choice2TextBox.CustomButton.Image = null;
             this.Choice2TextBox.CustomButton.Location = new System.Drawing.Point(142, 1);
             this.Choice2TextBox.CustomButton.Name = "";
@@ -124,12 +115,12 @@
             this.Choice2TextBox.WaterMark = "Choice 2";
             this.Choice2TextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Choice2TextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
+            //
             // Choice3TextBox
-            // 
-            // 
-            // 
-            // 
+            //
+            //
+            //
+            //
             this.Choice3TextBox.CustomButton.Image = null;
             this.Choice3TextBox.CustomButton.Location = new System.Drawing.Point(142, 1);
             this.Choice3TextBox.CustomButton.Name = "";
@@ -157,12 +148,12 @@
             this.Choice3TextBox.WaterMark = "Choice 3";
             this.Choice3TextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Choice3TextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
+            //
             // Choice4TextBox
-            // 
-            // 
-            // 
-            // 
+            //
+            //
+            //
+            //
             this.Choice4TextBox.CustomButton.Image = null;
             this.Choice4TextBox.CustomButton.Location = new System.Drawing.Point(142, 1);
             this.Choice4TextBox.CustomButton.Name = "";
@@ -190,12 +181,12 @@
             this.Choice4TextBox.WaterMark = "Choice 4";
             this.Choice4TextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Choice4TextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
+            //
             // QuestionTextTextBox
-            // 
-            // 
-            // 
-            // 
+            //
+            //
+            //
+            //
             this.QuestionTextTextBox.CustomButton.Image = null;
             this.QuestionTextTextBox.CustomButton.Location = new System.Drawing.Point(240, 1);
             this.QuestionTextTextBox.CustomButton.Name = "";
@@ -223,9 +214,9 @@
             this.QuestionTextTextBox.WaterMark = "Question Text";
             this.QuestionTextTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.QuestionTextTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
+            //
             // Choice1RadioButton
-            // 
+            //
             this.Choice1RadioButton.AutoSize = true;
             this.Choice1RadioButton.Location = new System.Drawing.Point(205, 121);
             this.Choice1RadioButton.Name = "Choice1RadioButton";
@@ -233,9 +224,9 @@
             this.Choice1RadioButton.TabIndex = 12;
             this.Choice1RadioButton.Text = "Correct";
             this.Choice1RadioButton.UseSelectable = true;
-            // 
+            //
             // Choice2RadioButton
-            // 
+            //
             this.Choice2RadioButton.AutoSize = true;
             this.Choice2RadioButton.Location = new System.Drawing.Point(205, 152);
             this.Choice2RadioButton.Name = "Choice2RadioButton";
@@ -243,9 +234,9 @@
             this.Choice2RadioButton.TabIndex = 13;
             this.Choice2RadioButton.Text = "Correct";
             this.Choice2RadioButton.UseSelectable = true;
-            // 
+            //
             // Choice3RadioButton
-            // 
+            //
             this.Choice3RadioButton.AutoSize = true;
             this.Choice3RadioButton.Location = new System.Drawing.Point(205, 182);
             this.Choice3RadioButton.Name = "Choice3RadioButton";
@@ -253,9 +244,9 @@
             this.Choice3RadioButton.TabIndex = 14;
             this.Choice3RadioButton.Text = "Correct";
             this.Choice3RadioButton.UseSelectable = true;
-            // 
+            //
             // Choice4RadioButton
-            // 
+            //
             this.Choice4RadioButton.AutoSize = true;
             this.Choice4RadioButton.Location = new System.Drawing.Point(205, 211);
             this.Choice4RadioButton.Name = "Choice4RadioButton";
@@ -263,9 +254,9 @@
             this.Choice4RadioButton.TabIndex = 15;
             this.Choice4RadioButton.Text = "Correct";
             this.Choice4RadioButton.UseSelectable = true;
-            // 
+            //
             // AddQuestionForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
@@ -278,7 +269,6 @@
             this.Controls.Add(this.Choice2TextBox);
             this.Controls.Add(this.Choice1TextBox);
             this.Controls.Add(this.AddQuestionButton);
-            this.Controls.Add(this.Choice1);
             this.Controls.Add(this.QuestionTextTextBox);
             this.Name = "AddQuestionForm";
             this.Text = "Add New Question";
@@ -289,7 +279,6 @@
         }
 
         #endregion
-        private MetroFramework.Controls.MetroRadioButton Choice1;
         private MetroFramework.Controls.MetroButton AddQuestionButton;
         private MetroFramework.Controls.MetroTextBox Choice1TextBox;
         private MetroFramework.Controls.MetroTextBox Choice2TextBox;

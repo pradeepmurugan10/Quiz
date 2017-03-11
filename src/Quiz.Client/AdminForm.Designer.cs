@@ -46,6 +46,7 @@
             this.DurationSubmitButton.TabIndex = 0;
             this.DurationSubmitButton.Text = "Update On Server";
             this.DurationSubmitButton.UseSelectable = true;
+            this.DurationSubmitButton.Click += new System.EventHandler(this.DurationSubmitButton_Click);
             // 
             // DurationTextBox
             // 

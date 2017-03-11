@@ -22,7 +22,12 @@ namespace Quiz.Client
 
         private void AddQuestionButton_Click(object sender, EventArgs e)
         {
+            (new AddQuestionForm()).ShowDialog();
+        }
 
+        private void DurationSubmitButton_Click(object sender, EventArgs e)
+        {
+            Program.ServiceClient.UpdateTestDuration(TimeSpan.FromMinutes(int.Parse(DurationTextBox.Text)));
         }
     }
 }

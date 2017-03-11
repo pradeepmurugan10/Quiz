@@ -16,7 +16,16 @@ namespace Quiz.Client
         private IEnumerable<Question> questions;
         private Timer quizTimer = new Timer();
         private TimeSpan timeLeft;
-        public Question CurrentQuestion { get; set; }
+        private Question currentQuestion;
+        public QuestionsForm()
+        {
+            InitializeComponent();
+            quizTimer.Interval = 1000;
+            quizTimer.Tick += QuizTimer_Tick;
+            timeLeft = Program.ServiceClient.GetTestDuration();
+            questions = Program.ServiceClient.GetQuestions();
+            TimerLabel.Text = $"{timeLeft.Minutes} minutes left";
+        }
         public QuestionsForm(IEnumerable<Question> questions, TimeSpan testDuration)
         {
             this.questions = questions;

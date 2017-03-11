@@ -7,7 +7,8 @@ namespace Quiz.Client
 {
     static class Program
     {
-        public static RestClient ServiceClient { get; set; }
+        public static string CurrentRollNumber { get; set; }
+        public static QuizRestClient ServiceClient { get; set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +17,7 @@ namespace Quiz.Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddQuestionForm());
+            Application.Run(new QuizLoginForm());
         }
     }
 }

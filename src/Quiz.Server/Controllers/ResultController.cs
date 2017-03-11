@@ -24,14 +24,14 @@ namespace Quiz.Server.Controllers
         {
             return _db.GetCollection<QuizData>("results").FindAll();
         }
-
+        /*
         // GET api/values/5
         [HttpGet("{rollNumber:regex(^[a-zA-Z0-9_ ]*$)")]
         public QuizData Get(string rollNumber)
         {
             return _db.GetCollection<QuizData>("results").FindOne(x=> x.RollNumber == rollNumber);
         }
-
+        */
         // POST api/values
         [HttpPost]
         public void Post([FromBody]QuizData data)
