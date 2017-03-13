@@ -11,31 +11,20 @@ using Quiz.Common.Models;
 
 namespace Quiz.Client
 {
-    public partial class QuestionsForm : MetroForm
+    public partial class QuizForm : MetroForm
     {
-        private IEnumerable<Question> questions;
+        private Quiz.Common.Models.Quiz quiz;
         private Timer quizTimer = new Timer();
         private TimeSpan timeLeft;
         private Question currentQuestion;
-        public QuestionsForm()
+        public QuizForm()
         {
             InitializeComponent();
             quizTimer.Interval = 1000;
             quizTimer.Tick += QuizTimer_Tick;
-            timeLeft = Program.ServiceClient.GetTestDuration();
-            questions = Program.ServiceClient.GetQuestions();
+            timeLeft = quiz.QuizDuration;
             TimerLabel.Text = $"{timeLeft.Minutes} minutes left";
         }
-        public QuestionsForm(IEnumerable<Question> questions, TimeSpan testDuration)
-        {
-            this.questions = questions;
-            InitializeComponent();
-            quizTimer.Interval = 1000;
-            quizTimer.Tick += QuizTimer_Tick;
-            timeLeft = testDuration;
-            TimerLabel.Text = $"{timeLeft.Minutes} minutes left";
-        }
-
         private void QuizTimer_Tick(object sender, EventArgs e)
         {
             timeLeft = timeLeft.Subtract(new TimeSpan(0, 0, 1));
@@ -54,5 +43,9 @@ namespace Quiz.Client
             Choice4RadioButton.Visible = true;
         }
 
+        private void SubmitQuizButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

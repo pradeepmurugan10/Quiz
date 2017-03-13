@@ -14,6 +14,7 @@ namespace Quiz.Client
 {
     public partial class AdminForm : MetroForm
     {
+        Common.Models.Quiz quiz;
         public AdminForm()
         {
             InitializeComponent();
@@ -25,9 +26,9 @@ namespace Quiz.Client
             (new AddQuestionForm()).ShowDialog();
         }
 
-        private void DurationSubmitButton_Click(object sender, EventArgs e)
+        private void DurationUpdateButton_Click(object sender, EventArgs e)
         {
-            Program.ServiceClient.UpdateTestDuration(TimeSpan.FromMinutes(int.Parse(DurationTextBox.Text)));
+           quiz.QuizDuration = (TimeSpan.FromMinutes(int.Parse(DurationTextBox.Text)));
         }
     }
 }

@@ -38,23 +38,24 @@
             this.Choice2RadioButton = new MetroFramework.Controls.MetroRadioButton();
             this.Choice3RadioButton = new MetroFramework.Controls.MetroRadioButton();
             this.Choice4RadioButton = new MetroFramework.Controls.MetroRadioButton();
+            this.QuestionNumberTextBox = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
-            //
+            // 
             // AddQuestionButton
-            //
-            this.AddQuestionButton.Location = new System.Drawing.Point(23, 240);
+            // 
+            this.AddQuestionButton.Location = new System.Drawing.Point(23, 254);
             this.AddQuestionButton.Name = "AddQuestionButton";
             this.AddQuestionButton.Size = new System.Drawing.Size(262, 23);
             this.AddQuestionButton.TabIndex = 7;
             this.AddQuestionButton.Text = "Update Database";
             this.AddQuestionButton.UseSelectable = true;
             this.AddQuestionButton.Click += new System.EventHandler(this.AddQuestionButton_Click);
-            //
+            // 
             // Choice1TextBox
-            //
-            //
-            //
-            //
+            // 
+            // 
+            // 
+            // 
             this.Choice1TextBox.CustomButton.Image = null;
             this.Choice1TextBox.CustomButton.Location = new System.Drawing.Point(142, 1);
             this.Choice1TextBox.CustomButton.Name = "";
@@ -82,12 +83,12 @@
             this.Choice1TextBox.WaterMark = "Choice 1";
             this.Choice1TextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Choice1TextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            //
+            // 
             // Choice2TextBox
-            //
-            //
-            //
-            //
+            // 
+            // 
+            // 
+            // 
             this.Choice2TextBox.CustomButton.Image = null;
             this.Choice2TextBox.CustomButton.Location = new System.Drawing.Point(142, 1);
             this.Choice2TextBox.CustomButton.Name = "";
@@ -115,12 +116,12 @@
             this.Choice2TextBox.WaterMark = "Choice 2";
             this.Choice2TextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Choice2TextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            //
+            // 
             // Choice3TextBox
-            //
-            //
-            //
-            //
+            // 
+            // 
+            // 
+            // 
             this.Choice3TextBox.CustomButton.Image = null;
             this.Choice3TextBox.CustomButton.Location = new System.Drawing.Point(142, 1);
             this.Choice3TextBox.CustomButton.Name = "";
@@ -148,12 +149,12 @@
             this.Choice3TextBox.WaterMark = "Choice 3";
             this.Choice3TextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Choice3TextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            //
+            // 
             // Choice4TextBox
-            //
-            //
-            //
-            //
+            // 
+            // 
+            // 
+            // 
             this.Choice4TextBox.CustomButton.Image = null;
             this.Choice4TextBox.CustomButton.Location = new System.Drawing.Point(142, 1);
             this.Choice4TextBox.CustomButton.Name = "";
@@ -181,14 +182,14 @@
             this.Choice4TextBox.WaterMark = "Choice 4";
             this.Choice4TextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.Choice4TextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            //
+            // 
             // QuestionTextTextBox
-            //
-            //
-            //
-            //
+            // 
+            // 
+            // 
+            // 
             this.QuestionTextTextBox.CustomButton.Image = null;
-            this.QuestionTextTextBox.CustomButton.Location = new System.Drawing.Point(240, 1);
+            this.QuestionTextTextBox.CustomButton.Location = new System.Drawing.Point(177, 1);
             this.QuestionTextTextBox.CustomButton.Name = "";
             this.QuestionTextTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.QuestionTextTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -197,7 +198,7 @@
             this.QuestionTextTextBox.CustomButton.UseSelectable = true;
             this.QuestionTextTextBox.CustomButton.Visible = false;
             this.QuestionTextTextBox.Lines = new string[0];
-            this.QuestionTextTextBox.Location = new System.Drawing.Point(23, 74);
+            this.QuestionTextTextBox.Location = new System.Drawing.Point(86, 83);
             this.QuestionTextTextBox.MaxLength = 32767;
             this.QuestionTextTextBox.Name = "QuestionTextTextBox";
             this.QuestionTextTextBox.PasswordChar = '\0';
@@ -207,16 +208,16 @@
             this.QuestionTextTextBox.SelectionLength = 0;
             this.QuestionTextTextBox.SelectionStart = 0;
             this.QuestionTextTextBox.ShortcutsEnabled = true;
-            this.QuestionTextTextBox.Size = new System.Drawing.Size(262, 23);
+            this.QuestionTextTextBox.Size = new System.Drawing.Size(199, 23);
             this.QuestionTextTextBox.TabIndex = 0;
             this.QuestionTextTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.QuestionTextTextBox.UseSelectable = true;
             this.QuestionTextTextBox.WaterMark = "Question Text";
             this.QuestionTextTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.QuestionTextTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            //
+            // 
             // Choice1RadioButton
-            //
+            // 
             this.Choice1RadioButton.AutoSize = true;
             this.Choice1RadioButton.Location = new System.Drawing.Point(205, 121);
             this.Choice1RadioButton.Name = "Choice1RadioButton";
@@ -224,9 +225,9 @@
             this.Choice1RadioButton.TabIndex = 12;
             this.Choice1RadioButton.Text = "Correct";
             this.Choice1RadioButton.UseSelectable = true;
-            //
+            // 
             // Choice2RadioButton
-            //
+            // 
             this.Choice2RadioButton.AutoSize = true;
             this.Choice2RadioButton.Location = new System.Drawing.Point(205, 152);
             this.Choice2RadioButton.Name = "Choice2RadioButton";
@@ -234,9 +235,9 @@
             this.Choice2RadioButton.TabIndex = 13;
             this.Choice2RadioButton.Text = "Correct";
             this.Choice2RadioButton.UseSelectable = true;
-            //
+            // 
             // Choice3RadioButton
-            //
+            // 
             this.Choice3RadioButton.AutoSize = true;
             this.Choice3RadioButton.Location = new System.Drawing.Point(205, 182);
             this.Choice3RadioButton.Name = "Choice3RadioButton";
@@ -244,9 +245,9 @@
             this.Choice3RadioButton.TabIndex = 14;
             this.Choice3RadioButton.Text = "Correct";
             this.Choice3RadioButton.UseSelectable = true;
-            //
+            // 
             // Choice4RadioButton
-            //
+            // 
             this.Choice4RadioButton.AutoSize = true;
             this.Choice4RadioButton.Location = new System.Drawing.Point(205, 211);
             this.Choice4RadioButton.Name = "Choice4RadioButton";
@@ -254,12 +255,45 @@
             this.Choice4RadioButton.TabIndex = 15;
             this.Choice4RadioButton.Text = "Correct";
             this.Choice4RadioButton.UseSelectable = true;
-            //
+            // 
+            // QuestionNumberTextBox
+            // 
+            // 
+            // 
+            // 
+            this.QuestionNumberTextBox.CustomButton.Image = null;
+            this.QuestionNumberTextBox.CustomButton.Location = new System.Drawing.Point(35, 1);
+            this.QuestionNumberTextBox.CustomButton.Name = "";
+            this.QuestionNumberTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.QuestionNumberTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.QuestionNumberTextBox.CustomButton.TabIndex = 1;
+            this.QuestionNumberTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.QuestionNumberTextBox.CustomButton.UseSelectable = true;
+            this.QuestionNumberTextBox.CustomButton.Visible = false;
+            this.QuestionNumberTextBox.Lines = new string[] {
+        "metroTextBox1"};
+            this.QuestionNumberTextBox.Location = new System.Drawing.Point(23, 83);
+            this.QuestionNumberTextBox.MaxLength = 32767;
+            this.QuestionNumberTextBox.Name = "QuestionNumberTextBox";
+            this.QuestionNumberTextBox.PasswordChar = '\0';
+            this.QuestionNumberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.QuestionNumberTextBox.SelectedText = "";
+            this.QuestionNumberTextBox.SelectionLength = 0;
+            this.QuestionNumberTextBox.SelectionStart = 0;
+            this.QuestionNumberTextBox.ShortcutsEnabled = true;
+            this.QuestionNumberTextBox.Size = new System.Drawing.Size(57, 23);
+            this.QuestionNumberTextBox.TabIndex = 16;
+            this.QuestionNumberTextBox.Text = "metroTextBox1";
+            this.QuestionNumberTextBox.UseSelectable = true;
+            this.QuestionNumberTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.QuestionNumberTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // AddQuestionForm
-            //
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Controls.Add(this.QuestionNumberTextBox);
             this.Controls.Add(this.Choice4RadioButton);
             this.Controls.Add(this.Choice3RadioButton);
             this.Controls.Add(this.Choice2RadioButton);
@@ -289,5 +323,6 @@
         private MetroFramework.Controls.MetroRadioButton Choice2RadioButton;
         private MetroFramework.Controls.MetroRadioButton Choice3RadioButton;
         private MetroFramework.Controls.MetroRadioButton Choice4RadioButton;
+        private MetroFramework.Controls.MetroTextBox QuestionNumberTextBox;
     }
 }

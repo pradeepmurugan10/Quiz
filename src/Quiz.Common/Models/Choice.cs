@@ -9,10 +9,5 @@ namespace Quiz.Common.Models
         public string ChoiceText { get; set; }
         public bool IsCorrectChoice { get; set; } = true;
         public Choice() { }
-        public Choice(string choiceText, bool isCorrectChoice = true)
-        {
-            ChoiceText = choiceText;
-            IsCorrectChoice = isCorrectChoice;
-        }
     }
 }

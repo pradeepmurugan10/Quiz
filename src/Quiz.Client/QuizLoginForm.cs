@@ -40,7 +40,7 @@ namespace Quiz.Client
         }
         private void LoadQuizUI()
         {
-            (new QuestionsForm()).Show();
+            (new QuizForm()).Show();
             Hide();
         }
     }

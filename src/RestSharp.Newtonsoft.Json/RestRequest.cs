@@ -19,7 +19,7 @@ namespace RestSharp.Newtonsoft.Json
 
         /// <summary>
         /// Sets Method property to value of method
-        /// 
+        ///
         /// </summary>
         /// <param name="method">Method to use for this request</param>
         public RestRequest(Method method) : base(method)
@@ -29,7 +29,7 @@ namespace RestSharp.Newtonsoft.Json
 
         /// <summary>
         /// Sets Resource property
-        /// 
+        ///
         /// </summary>
         /// <param name="resource">Resource to use for this request</param>
         public RestRequest(string resource) : base(resource)
@@ -39,7 +39,7 @@ namespace RestSharp.Newtonsoft.Json
 
         /// <summary>
         /// Sets Resource and Method properties
-        /// 
+        ///
         /// </summary>
         /// <param name="resource">Resource to use for this request</param><param name="method">Method to use for this request</param>
         public RestRequest(string resource, Method method) : base(resource, method)
@@ -49,7 +49,7 @@ namespace RestSharp.Newtonsoft.Json
 
         /// <summary>
         /// Sets Resource property
-        /// 
+        ///
         /// </summary>
         /// <param name="resource">Resource to use for this request</param>
         public RestRequest(Uri resource) : base(resource)
@@ -59,7 +59,7 @@ namespace RestSharp.Newtonsoft.Json
 
         /// <summary>
         /// Sets Resource and Method properties
-        /// 
+        ///
         /// </summary>
         /// <param name="resource">Resource to use for this request</param><param name="method">Method to use for this request</param>
         public RestRequest(Uri resource, Method method) : base(resource, method)
@@ -76,7 +76,7 @@ namespace RestSharp.Newtonsoft.Json
         /// </summary>
         protected void IntializeJsonSerializer()
         {
-            JsonSerializer = new NewtonsoftJsonSerializer();
+            JsonSerializer = NewtonsoftJsonSerializer.Default;
         }
 
         #endregion

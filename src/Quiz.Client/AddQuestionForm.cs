@@ -21,12 +21,14 @@ namespace Quiz.Client
         private void AddQuestionButton_Click(object sender, EventArgs e)
         {
             var choices = new Choice[]
-              { new Choice(Choice1TextBox.Text, Choice1RadioButton.Checked),
-                new Choice(Choice2TextBox.Text, Choice2RadioButton.Checked),
-                new Choice(Choice3TextBox.Text, Choice3RadioButton.Checked),
-                new Choice(Choice4TextBox.Text, Choice4RadioButton.Checked) };
+              {
+                 new Choice { ChoiceText = Choice1TextBox.Text, IsCorrectChoice = Choice1RadioButton.Checked },
+                 new Choice { ChoiceText = Choice2TextBox.Text, IsCorrectChoice = Choice2RadioButton.Checked },
+                 new Choice { ChoiceText = Choice3TextBox.Text, IsCorrectChoice = Choice3RadioButton.Checked },
+                 new Choice { ChoiceText = Choice4TextBox.Text, IsCorrectChoice = Choice4RadioButton.Checked }
+              };
             var question = new Question(QuestionTextTextBox.Text, choices);
-            Program.ServiceClient.AddQuestion(question);
+           // Program.ServiceClient.AddQuestion(question);
         }
     }
 }
