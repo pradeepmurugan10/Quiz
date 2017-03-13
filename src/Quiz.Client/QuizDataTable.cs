@@ -22,7 +22,22 @@ namespace Quiz.Client
             dt.Columns.Add("Choice 3 Correct", typeof(bool));
             dt.Columns.Add("Choice 4 Text", typeof(string));
             dt.Columns.Add("Choice 4 Correct", typeof(bool));
-
+            foreach(var question in questions)
+            {
+                dt.Rows.Add(
+                    question.Key,
+                    question.Value.QuestionText,
+                    question.Value.Choices.ElementAt(0).ChoiceText,
+                    question.Value.Choices.ElementAt(0).IsCorrectChoice,
+                    question.Value.Choices.ElementAt(1).ChoiceText,
+                    question.Value.Choices.ElementAt(1).IsCorrectChoice,
+                    question.Value.Choices.ElementAt(2).ChoiceText,
+                    question.Value.Choices.ElementAt(2).IsCorrectChoice,
+                    question.Value.Choices.ElementAt(3).ChoiceText,
+                    question.Value.Choices.ElementAt(3).IsCorrectChoice
+                    );
+            }
+            return dt;
         }
     }
 }
