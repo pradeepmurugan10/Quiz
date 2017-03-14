@@ -18,7 +18,14 @@ namespace Quiz.Client
         public AdminForm()
         {
             InitializeComponent();
-           // QuestionsDataGrid.DataSource = client.Execute<List<Question>>(new RestRequest("questions")).Data;
+            quiz = new Common.Models.Quiz {
+                QuestionsList = new SortedDictionary<int, Question> (),
+                QuizDuration = TimeSpan.FromMinutes(45),
+                QuizId = new Guid(),
+                QuizName = "Testing" };
+            QuestionsGrid.DataSource = QuizDataTable.Create(quiz.QuestionsList);
+            QuestionsGrid.Columns["Question Id"].Visible = false;
+
         }
 
         private void AddQuestionButton_Click(object sender, EventArgs e)
@@ -28,7 +35,35 @@ namespace Quiz.Client
 
         private void DurationUpdateButton_Click(object sender, EventArgs e)
         {
-           quiz.QuizDuration = (TimeSpan.FromMinutes(int.Parse(DurationTextBox.Text)));
+           quiz.QuizDuration = (TimeSpan.FromMinutes(int.Parse(QuizDurationTextBox.Text)));
+        }
+
+        private void ServerUpdateButton_Click(object sender, EventArgs e)
+        {
+            foreach(DataGridViewRow row in QuestionsGrid.Rows)
+            {
+                var guid = string.IsNullOrWhiteSpace(row.Cells["Question Id"].Value.ToString()) ? Guid.Parse(row.Cells["Question Id"].Value.ToString()) : Guid.NewGuid();
+                var choices = new Choice[]
+                {
+                 new Choice { ChoiceText      = (string) row.Cells["Choice 1 Text"].Value,
+                              IsCorrectChoice = (bool) row.Cells["Choice 1 Correct"].Value
+                            },
+                 new Choice { ChoiceText = (string) row.Cells["Choice 2 Text"].Value,
+                              IsCorrectChoice =  (bool) row.Cells["Choice 2 Correct"].Value
+                            },
+                 new Choice {
+                              ChoiceText = (string) row.Cells["Choice 3 Text"].Value,
+                              IsCorrectChoice = (bool) row.Cells["Choice 3 Correct"].Value
+                            },
+                 new Choice {
+                     ChoiceText = (string) row.Cells["Choice 4 Text"].Value,
+                     IsCorrectChoice =  (bool) row.Cells["Choice 4 Correct"].Value
+                 }
+                };
+                quiz.QuestionsList[(int)row.Cells["Question Number"].Value] = new Question(
+                    guid, (string)row.Cells["Question Text"].Value, choices);
+
+            }
         }
     }
 }

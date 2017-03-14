@@ -17,6 +17,11 @@ namespace Quiz.Client
         private Timer quizTimer = new Timer();
         private TimeSpan timeLeft;
         private Question currentQuestion;
+        public QuizForm(Quiz.Common.Models.Quiz quiz)
+        {
+            this.quiz = quiz;
+            timeLeft = this.quiz.QuizDuration;
+        }
         public QuizForm()
         {
             InitializeComponent();

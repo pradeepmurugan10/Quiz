@@ -9,7 +9,7 @@ namespace Quiz.Client
 {
     class QuizDataTable
     {
-        public static DataTable Create(Dictionary<int, Question> questions)
+        public static DataTable Create(SortedDictionary<int, Question> questions)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Question Number", typeof(int));
@@ -22,6 +22,8 @@ namespace Quiz.Client
             dt.Columns.Add("Choice 3 Correct", typeof(bool));
             dt.Columns.Add("Choice 4 Text", typeof(string));
             dt.Columns.Add("Choice 4 Correct", typeof(bool));
+            dt.Columns.Add("Question Id", typeof(string));
+           // dt.
             foreach(var question in questions)
             {
                 dt.Rows.Add(
@@ -34,10 +36,12 @@ namespace Quiz.Client
                     question.Value.Choices.ElementAt(2).ChoiceText,
                     question.Value.Choices.ElementAt(2).IsCorrectChoice,
                     question.Value.Choices.ElementAt(3).ChoiceText,
-                    question.Value.Choices.ElementAt(3).IsCorrectChoice
+                    question.Value.Choices.ElementAt(3).IsCorrectChoice,
+                    question.Value.QuestionId.ToString()
                     );
             }
             return dt;
         }
+
     }
 }
