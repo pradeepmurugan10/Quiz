@@ -28,40 +28,33 @@ namespace Quiz.Client
 
         }
 
-        private void AddQuestionButton_Click(object sender, EventArgs e)
-        {
-            (new AddQuestionForm()).ShowDialog();
-        }
-
-        private void DurationUpdateButton_Click(object sender, EventArgs e)
-        {
-           quiz.QuizDuration = (TimeSpan.FromMinutes(int.Parse(QuizDurationTextBox.Text)));
-        }
-
         private void ServerUpdateButton_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow row in QuestionsGrid.Rows)
+            quiz.QuizName = QuizNameTextBox.Text;
+            quiz.QuizDuration = (TimeSpan.FromMinutes(int.Parse(QuizDurationTextBox.Text)));
+            foreach (DataGridViewRow row in QuestionsGrid.Rows)
             {
-                var guid = string.IsNullOrWhiteSpace(row.Cells["Question Id"].Value.ToString()) ? Guid.Parse(row.Cells["Question Id"].Value.ToString()) : Guid.NewGuid();
+                var guid = string.IsNullOrWhiteSpace(row.Cells["Question Id"].Value.ToString()) ?  Guid.NewGuid() : Guid.Parse(row.Cells["Question Id"].Value.ToString());
                 var choices = new Choice[]
                 {
-                 new Choice { ChoiceText      = (string) row.Cells["Choice 1 Text"].Value,
-                              IsCorrectChoice = (bool) row.Cells["Choice 1 Correct"].Value
+                 new Choice { ChoiceText      = row.Cells["Choice 1 Text"].Value.ToString(),
+                              IsCorrectChoice = ((DataGridViewCheckBoxCell)row.Cells["Choice 1 Correct"]).Selected
                             },
-                 new Choice { ChoiceText = (string) row.Cells["Choice 2 Text"].Value,
-                              IsCorrectChoice =  (bool) row.Cells["Choice 2 Correct"].Value
-                            },
-                 new Choice {
-                              ChoiceText = (string) row.Cells["Choice 3 Text"].Value,
-                              IsCorrectChoice = (bool) row.Cells["Choice 3 Correct"].Value
+                 new Choice { ChoiceText      = row.Cells["Choice 2 Text"].Value.ToString(),
+                              IsCorrectChoice = ((DataGridViewCheckBoxCell)row.Cells["Choice 2 Correct"]).Selected
                             },
                  new Choice {
-                     ChoiceText = (string) row.Cells["Choice 4 Text"].Value,
-                     IsCorrectChoice =  (bool) row.Cells["Choice 4 Correct"].Value
+                              ChoiceText      = row.Cells["Choice 3 Text"].Value.ToString(),
+                              IsCorrectChoice = ((DataGridViewCheckBoxCell)row.Cells["Choice 3 Correct"]).Selected
+                            },
+                 new Choice {
+                              ChoiceText      =  row.Cells["Choice 4 Text"].Value.ToString(),
+                              IsCorrectChoice =   ((DataGridViewCheckBoxCell)row.Cells["Choice 4 Correct"]).Selected
                  }
                 };
                 quiz.QuestionsList[(int)row.Cells["Question Number"].Value] = new Question(
                     guid, (string)row.Cells["Question Text"].Value, choices);
+                Program.ServiceClient.SubmitQuiz(quiz);
 
             }
         }

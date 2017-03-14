@@ -22,7 +22,7 @@ namespace Quiz.Client
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            //Program.ServiceClient = new QuizRestClient("http://" + ServerIPTextBox.Text);
+            Program.ServiceClient = new QuizRestClient("http://" + ServerIPTextBox.Text);
             Program.CurrentRollNumber = RollNumberTextBox.Text;
             if(RollNumberTextBox.Text == superUser)
             {

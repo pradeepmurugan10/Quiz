@@ -26,7 +26,17 @@ namespace Quiz.Client
                 throw new ApplicationException("Error submitting quiz data to server", response.ErrorException);
             }
         }
-
+        public void SubmitQuiz(Common.Models.Quiz quiz)
+        {
+            var request = new RestSharp.Newtonsoft.Json.RestRequest($"quiz", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(quiz);
+            var response = innerClient.Execute(request);
+            if (response.ErrorException != null)
+            {
+                throw new ApplicationException("Error retreiving quiz data from server", response.ErrorException);
+            }
+        }
         public Common.Models.Quiz GetQuiz()
         {
             var request = new RestSharp.Newtonsoft.Json.RestRequest($"quiz/{new Guid().ToString()}", Method.GET);
