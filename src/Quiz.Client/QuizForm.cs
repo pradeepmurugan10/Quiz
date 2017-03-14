@@ -17,18 +17,17 @@ namespace Quiz.Client
         private Timer quizTimer = new Timer();
         private TimeSpan timeLeft;
         private Question currentQuestion;
-        public QuizForm(Quiz.Common.Models.Quiz quiz)
+        public QuizForm(Common.Models.Quiz quiz)
         {
             this.quiz = quiz;
             timeLeft = this.quiz.QuizDuration;
+            TimerLabel.Text = $"{timeLeft.Minutes} minutes left";
         }
         public QuizForm()
         {
             InitializeComponent();
             quizTimer.Interval = 1000;
             quizTimer.Tick += QuizTimer_Tick;
-            timeLeft = quiz.QuizDuration;
-            TimerLabel.Text = $"{timeLeft.Minutes} minutes left";
         }
         private void QuizTimer_Tick(object sender, EventArgs e)
         {

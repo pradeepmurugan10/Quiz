@@ -23,7 +23,7 @@ namespace Quiz.Client
             var response = innerClient.Execute(request);
             if (response.ErrorException != null)
             {
-                throw new ApplicationException("Error submitting quiz data to server", response.ErrorException);
+                throw new ApplicationException("Error submitting quiz result data to server", response.ErrorException);
             }
         }
         public void SubmitQuiz(Common.Models.Quiz quiz)
@@ -34,7 +34,7 @@ namespace Quiz.Client
             var response = innerClient.Execute(request);
             if (response.ErrorException != null)
             {
-                throw new ApplicationException("Error retreiving quiz data from server", response.ErrorException);
+                throw new ApplicationException("Error submitting quiz data from server", response.ErrorException);
             }
         }
         public Common.Models.Quiz GetQuiz()
@@ -62,7 +62,7 @@ namespace Quiz.Client
             }
             else
             {
-                throw new ApplicationException("Error retreiving quiz data from server", response.ErrorException);
+                throw new ApplicationException("Error retreiving quiz result data from server", response.ErrorException);
             }
         }
     }
