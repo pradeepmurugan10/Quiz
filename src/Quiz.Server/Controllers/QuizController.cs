@@ -18,7 +18,7 @@ namespace Quiz.Server.Controllers
         {
             _db = db;
         }
-        [HttpPost("results")]
+        [HttpGet("results")]
         public IEnumerable<QuizData> GetResults()
         {
             return _db.GetCollection<QuizData>("results").FindAll();

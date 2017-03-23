@@ -52,7 +52,7 @@ namespace Quiz.Client
             StartQuizButton.Visible = false;
             SubmitQuizButton.Enabled = false;
             NextQuestionButton.Visible = true;
-            PreviousQuestionButton.Enabled = true;
+            PreviousQuestionButton.Visible = true;
             QuestionLabel.Visible = true;
             Choice1RadioButton.Visible = true;
             Choice2RadioButton.Visible = true;
@@ -138,8 +138,7 @@ namespace Quiz.Client
                     { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
                 default: { MessageBox.Show("Invalid choice"); break; }
             }
-            --currentQuestionNumber;
-            SetCurrentQuestion(quiz.QuestionsList.ElementAtOrDefault(currentQuestionNumber-1));
+            SetCurrentQuestion(quiz.QuestionsList.SingleOrDefault(x => x.Key == currentQuestionNumber - 1));
         }
 
         private void NextQuestionButton_Click(object sender, EventArgs e)
@@ -157,7 +156,7 @@ namespace Quiz.Client
                     { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
                 default: { MessageBox.Show("Invalid choice"); break; }
             }
-            SetCurrentQuestion(quiz.QuestionsList.ElementAtOrDefault(currentQuestionNumber+1));
+            SetCurrentQuestion(quiz.QuestionsList.SingleOrDefault(x => x.Key == currentQuestionNumber+1));
         }
     }
 }
