@@ -110,6 +110,9 @@
     <EmbeddedResource Include="QuizLoginForm.resx">
       <DependentUpon>QuizLoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResultsViewForm.resx">
+      <DependentUpon>ResultsViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

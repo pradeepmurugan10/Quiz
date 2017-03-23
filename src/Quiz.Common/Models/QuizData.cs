@@ -7,6 +7,8 @@ namespace Quiz.Common.Models
 {
     public class QuizData
     {
+        public QuizData()
+        { }
         public string RollNumber { get; set; }
         public Dictionary<Guid,Choice> QuestionChoiceList { get; set; }
     }

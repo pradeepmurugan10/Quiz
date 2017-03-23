@@ -9,6 +9,16 @@ namespace Quiz.Client
 {
     class QuizDataTable
     {
+        public static DataTable CreateResults(IEnumerable<QuizData> quizData)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Roll Number", typeof(string));
+            dt.Columns.Add("Marks", typeof(int));
+            foreach(var result in quizData)
+            {
+
+            }
+        }
         public static DataTable Create(SortedDictionary<int, Question> questions)
         {
             DataTable dt = new DataTable();
