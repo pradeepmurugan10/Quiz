@@ -66,22 +66,22 @@ namespace Quiz.Client
                     var choices = new Choice[]
                     {
                  new Choice { ChoiceText      = row.Cells["Choice 1 Text"].Value.ToString(),
-                              IsCorrectChoice = (((DataGridViewCheckBoxCell)row.Cells["Choice 1 Correct"]).Value != null )
+                              IsCorrectChoice = (((DataGridViewCheckBoxCell)row.Cells["Choice 1 Correct"]).Value != null && (bool)((DataGridViewCheckBoxCell)row.Cells["Choice 1 Correct"]).Value)
                             },
                  new Choice { ChoiceText      = row.Cells["Choice 2 Text"].Value.ToString(),
-                              IsCorrectChoice = (((DataGridViewCheckBoxCell)row.Cells["Choice 2 Correct"]).Value != null )
+                              IsCorrectChoice = (((DataGridViewCheckBoxCell)row.Cells["Choice 2 Correct"]).Value != null && (bool)((DataGridViewCheckBoxCell)row.Cells["Choice 2 Correct"]).Value)
                             },
                  new Choice {
                               ChoiceText      = row.Cells["Choice 3 Text"].Value.ToString(),
-                              IsCorrectChoice = (((DataGridViewCheckBoxCell)row.Cells["Choice 3 Correct"]).Value != null )
+                              IsCorrectChoice = (((DataGridViewCheckBoxCell)row.Cells["Choice 3 Correct"]).Value != null && (bool)((DataGridViewCheckBoxCell)row.Cells["Choice 3 Correct"]).Value)
                             },
                  new Choice {
                               ChoiceText      =  row.Cells["Choice 4 Text"].Value.ToString(),
-                              IsCorrectChoice =  (((DataGridViewCheckBoxCell)row.Cells["Choice 4 Correct"]).Value != null )
+                              IsCorrectChoice =  (((DataGridViewCheckBoxCell)row.Cells["Choice 4 Correct"]).Value != null && (bool)((DataGridViewCheckBoxCell)row.Cells["Choice 4 Correct"]).Value)
                  }
                     };
                     quiz.QuestionsList[(int)row.Cells["Question Number"].Value] = new Question(
-                        guid, (string)row.Cells["Question Text"].Value, choices);
+                    guid, (string)row.Cells["Question Text"].Value, choices);
                 }
             }
             Program.ServiceClient.SubmitQuiz(quiz);
