@@ -9,7 +9,7 @@
         "NETStandard.Library": "1.6.1"
       }
     },
-    "net40": {
+    "net40-full": {
 
     }
   }

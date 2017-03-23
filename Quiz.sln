@@ -15,6 +15,9 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Quiz.Common", "src\Quiz.Common\Quiz.Common.xproj", "{E5157E54-7615-4CE1-AD61-6C24E5507A36}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.Client", "src\Quiz.Client\Quiz.Client.csproj", "{BF1086B9-8A48-40A5-B02A-A4D1EB2D1D50}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E5157E54-7615-4CE1-AD61-6C24E5507A36} = {E5157E54-7615-4CE1-AD61-6C24E5507A36}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestSharp.Newtonsoft.Json", "src\RestSharp.Newtonsoft.Json\RestSharp.Newtonsoft.Json.csproj", "{54B76044-B67F-4CAB-88DC-3E605E3C33D9}"
 EndProject

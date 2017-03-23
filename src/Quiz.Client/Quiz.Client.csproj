@@ -63,11 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminForm.cs">
+    <Compile Include="QuizEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <Compile Include="QuizEditorForm.Designer.cs">
+      <DependentUpon>QuizEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,8 +85,14 @@
       <DependentUpon>QuizLoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="QuizRestClient.cs" />
-    <EmbeddedResource Include="AdminForm.resx">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <Compile Include="ResultsViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultsViewForm.Designer.cs">
+      <DependentUpon>ResultsViewForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="QuizEditorForm.resx">
+      <DependentUpon>QuizEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

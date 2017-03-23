@@ -12,16 +12,16 @@ using System.Windows.Forms;
 
 namespace Quiz.Client
 {
-    public partial class AdminForm : MetroForm
+    public partial class QuizEditorForm : MetroForm
     {
         Common.Models.Quiz quiz;
-        public AdminForm()
+        public QuizEditorForm()
         {
             InitializeComponent();
-            quiz = new Common.Models.Quiz {
+            quiz = Program.ServiceClient.GetQuiz() ?? new Common.Models.Quiz {
                 QuestionsList = new SortedDictionary<int, Question> (),
                 QuizDuration = TimeSpan.FromMinutes(45),
-                QuizId = Guid.Parse("de5c69af-7c52-46be-b241-93ab9806f886"), // UNIQUE GUID FOR THE QUIZ, CURRENT VERSION ONLY SUPPORTS ONE QUIZ PER DATABASE IN CLIENT BUT SERVER CAN STORE MULTIPLE QUIZZES
+                QuizId = Guid.Parse("de5c69af-7c52-46be-b241-93ab9806f886"),
                 QuizName = "Test" };
             QuestionsGrid.DataSource = QuizDataTable.Create(quiz.QuestionsList);
             QuestionsGrid.Columns["Question Id"].Visible = false;

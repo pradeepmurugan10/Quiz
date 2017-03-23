@@ -105,17 +105,24 @@ namespace Quiz.Client
         private void SubmitQuizButton_Click(object sender, EventArgs e)
         {
             var checkedButton = Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            switch (checkedButton.Name)
+            try
             {
-                case nameof(Choice1RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
-                case nameof(Choice2RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
-                case nameof(Choice3RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
-                case nameof(Choice4RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
-                default: { MessageBox.Show("Invalid choice"); break; }
+                switch (checkedButton.Name)
+                {
+                    case nameof(Choice1RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
+                    case nameof(Choice2RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
+                    case nameof(Choice3RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
+                    case nameof(Choice4RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
+                    default: { MessageBox.Show("Invalid choice"); break; }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Invalid choice");
             }
             Program.ServiceClient.SubmitQuizData(new QuizData
             { RollNumber = Program.CurrentRollNumber,
@@ -126,17 +133,24 @@ namespace Quiz.Client
         private void PreviousQuestionButton_Click(object sender, EventArgs e)
         {
             var checkedButton = Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            switch (checkedButton.Name)
+            try
             {
-                case  nameof(Choice1RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
-                case nameof(Choice2RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
-                case nameof(Choice3RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
-                case nameof(Choice4RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
-                default: { MessageBox.Show("Invalid choice"); break; }
+                switch (checkedButton.Name)
+                {
+                    case nameof(Choice1RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
+                    case nameof(Choice2RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
+                    case nameof(Choice3RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
+                    case nameof(Choice4RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
+                    default: { MessageBox.Show("Invalid choice"); break; }
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Invalid choice");
             }
             SetCurrentQuestion(quiz.QuestionsList.SingleOrDefault(x => x.Key == currentQuestionNumber - 1));
         }
@@ -144,17 +158,24 @@ namespace Quiz.Client
         private void NextQuestionButton_Click(object sender, EventArgs e)
         {
             var checkedButton = Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            switch(checkedButton.Name)
+            try
             {
-                case nameof(Choice1RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
-                case nameof(Choice2RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
-                case nameof(Choice3RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
-                case nameof(Choice4RadioButton):
-                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
-                default: { MessageBox.Show("Invalid choice"); break; }
+                switch (checkedButton.Name)
+                {
+                    case nameof(Choice1RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
+                    case nameof(Choice2RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
+                    case nameof(Choice3RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
+                    case nameof(Choice4RadioButton):
+                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
+                    default: { MessageBox.Show("Invalid choice"); break; }
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Invalid choice");
             }
             SetCurrentQuestion(quiz.QuestionsList.SingleOrDefault(x => x.Key == currentQuestionNumber+1));
         }

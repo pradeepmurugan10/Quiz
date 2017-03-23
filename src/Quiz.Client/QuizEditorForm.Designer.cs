@@ -1,6 +1,6 @@
 ﻿namespace Quiz.Client
 {
-    partial class AdminForm
+    partial class QuizEditorForm
     {
         /// <summary>
         /// Required designer variable.
