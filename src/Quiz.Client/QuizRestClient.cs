@@ -75,7 +75,6 @@ namespace Quiz.Client
             }
             else
             {
-                MessageBox.Show(response.Content);
                 return response.Data;
             }
         }
