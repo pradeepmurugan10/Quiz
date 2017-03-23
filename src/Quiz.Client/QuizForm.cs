@@ -41,6 +41,7 @@ namespace Quiz.Client
             else if(timeLeft.TotalSeconds == 0)
             {
                 MessageBox.Show("Time Over. SUBMITTING !");
+                quizTimer.Stop();
                 Program.ServiceClient.SubmitQuizData(new QuizData
                 {
                     RollNumber = Program.CurrentRollNumber,
@@ -130,6 +131,7 @@ namespace Quiz.Client
                         { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
                     default: { MessageBox.Show("Invalid choice"); break; }
                 }
+                quizTimer.Stop();
                 Program.ServiceClient.SubmitQuizData(new QuizData
                 {
                     RollNumber = Program.CurrentRollNumber,

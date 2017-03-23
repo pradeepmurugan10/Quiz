@@ -34,9 +34,14 @@ namespace Quiz.Client
             quiz.QuizDuration = (TimeSpan.FromMinutes(int.Parse(QuizDurationTextBox.Text)));
             foreach (DataGridViewRow row in QuestionsGrid.Rows)
             {
-                var guid = string.IsNullOrWhiteSpace(row.Cells["Question Id"].Value.ToString()) ?  Guid.NewGuid() : Guid.Parse(row.Cells["Question Id"].Value.ToString());
-                var choices = new Choice[]
+                Guid guid;
+                try
                 {
+                    Guid.TryParse(row.Cells["Question Id"].Value.ToString(), out guid);
+
+
+                    var choices = new Choice[]
+                    {
                  new Choice { ChoiceText      = row.Cells["Choice 1 Text"].Value.ToString(),
                               IsCorrectChoice = ((DataGridViewCheckBoxCell)row.Cells["Choice 1 Correct"]).Selected
                             },
@@ -51,12 +56,16 @@ namespace Quiz.Client
                               ChoiceText      =  row.Cells["Choice 4 Text"].Value.ToString(),
                               IsCorrectChoice =   ((DataGridViewCheckBoxCell)row.Cells["Choice 4 Correct"]).Selected
                  }
-                };
-                quiz.QuestionsList[(int)row.Cells["Question Number"].Value] = new Question(
-                    guid, (string)row.Cells["Question Text"].Value, choices);
-                Program.ServiceClient.SubmitQuiz(quiz);
-
+                    };
+                    quiz.QuestionsList[(int)row.Cells["Question Number"].Value] = new Question(
+                        guid, (string)row.Cells["Question Text"].Value, choices);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show((string)row.Cells["Question Text"].Value);
+                }
             }
+            Program.ServiceClient.SubmitQuiz(quiz);
         }
     }
 }
