@@ -21,8 +21,8 @@ namespace Quiz.Client
             quiz = new Common.Models.Quiz {
                 QuestionsList = new SortedDictionary<int, Question> (),
                 QuizDuration = TimeSpan.FromMinutes(45),
-                QuizId = new Guid(),
-                QuizName = "Testing" };
+                QuizId = Guid.Parse("de5c69af-7c52-46be-b241-93ab9806f886"), // UNIQUE GUID FOR THE QUIZ, CURRENT VERSION ONLY SUPPORTS ONE QUIZ PER DATABASE IN CLIENT BUT SERVER CAN STORE MULTIPLE QUIZZES
+                QuizName = "Test" };
             QuestionsGrid.DataSource = QuizDataTable.Create(quiz.QuestionsList);
             QuestionsGrid.Columns["Question Id"].Visible = false;
 

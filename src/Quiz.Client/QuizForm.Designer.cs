@@ -121,6 +121,7 @@
             this.PreviousQuestionButton.TabIndex = 7;
             this.PreviousQuestionButton.Text = "Previous";
             this.PreviousQuestionButton.UseSelectable = true;
+            this.PreviousQuestionButton.Click += new System.EventHandler(this.PreviousQuestionButton_Click);
             // 
             // NextQuestionButton
             // 
@@ -130,6 +131,7 @@
             this.NextQuestionButton.TabIndex = 8;
             this.NextQuestionButton.Text = "Next";
             this.NextQuestionButton.UseSelectable = true;
+            this.NextQuestionButton.Click += new System.EventHandler(this.NextQuestionButton_Click);
             // 
             // SubmitQuizButton
             // 
@@ -142,7 +144,7 @@
             this.SubmitQuizButton.Visible = false;
             this.SubmitQuizButton.Click += new System.EventHandler(this.SubmitQuizButton_Click);
             // 
-            // QuestionsForm
+            // QuizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,7 +160,7 @@
             this.Controls.Add(this.TimerLabel);
             this.Controls.Add(this.StartQuizButton);
             this.DisplayHeader = false;
-            this.Name = "QuestionsForm";
+            this.Name = "QuizForm";
             this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.ResumeLayout(false);
             this.PerformLayout();

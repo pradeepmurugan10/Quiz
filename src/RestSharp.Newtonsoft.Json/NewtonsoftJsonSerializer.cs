@@ -31,7 +31,6 @@ namespace RestSharp.Newtonsoft.Json
     /// </summary>
     public class NewtonsoftJsonSerializer : ISerializer, IDeserializer
     {
-        private readonly JsonSerializer _serializer;
         private JsonSerializer serializer;
         public NewtonsoftJsonSerializer() : this
             (new JsonSerializer()
@@ -87,6 +86,7 @@ namespace RestSharp.Newtonsoft.Json
             {
                 return new NewtonsoftJsonSerializer(new JsonSerializer()
                 {
+                    
                     NullValueHandling = NullValueHandling.Ignore,
                 });
             }
