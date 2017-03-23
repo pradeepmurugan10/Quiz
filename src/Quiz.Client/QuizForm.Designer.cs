@@ -58,6 +58,7 @@
             this.TimerLabel.Size = new System.Drawing.Size(87, 19);
             this.TimerLabel.TabIndex = 1;
             this.TimerLabel.Text = "0 minutes left";
+            this.TimerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // QuestionLabel
             // 
@@ -121,6 +122,7 @@
             this.PreviousQuestionButton.TabIndex = 7;
             this.PreviousQuestionButton.Text = "Previous";
             this.PreviousQuestionButton.UseSelectable = true;
+            this.PreviousQuestionButton.Visible = false;
             this.PreviousQuestionButton.Click += new System.EventHandler(this.PreviousQuestionButton_Click);
             // 
             // NextQuestionButton
@@ -131,6 +133,7 @@
             this.NextQuestionButton.TabIndex = 8;
             this.NextQuestionButton.Text = "Next";
             this.NextQuestionButton.UseSelectable = true;
+            this.NextQuestionButton.Visible = false;
             this.NextQuestionButton.Click += new System.EventHandler(this.NextQuestionButton_Click);
             // 
             // SubmitQuizButton

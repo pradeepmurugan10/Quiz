@@ -50,30 +50,52 @@ namespace Quiz.Client
             quizTimer.Start();
             StartQuizButton.Enabled = false;
             StartQuizButton.Visible = false;
+            SubmitQuizButton.Enabled = false;
+            NextQuestionButton.Visible = true;
+            PreviousQuestionButton.Enabled = true;
             QuestionLabel.Visible = true;
-            Choice1RadioButton.Visible =  true;
+            Choice1RadioButton.Visible = true;
             Choice2RadioButton.Visible = true;
             Choice3RadioButton.Visible = true;
             Choice4RadioButton.Visible = true;
-            SetCurrentQuestion(quiz.QuestionsList[1],currentQuestionNumber); // INDEX STARTS FROM 1 FOR QUESTIONS LIST
+            SetCurrentQuestion(quiz.QuestionsList.First());
         }
-        public void SetCurrentQuestion(Question question, int questionIndex)
+        public void SetCurrentQuestion(KeyValuePair<int,Question> kvp)
         {
-           // int questionIndex  = quiz.QuestionsList.SingleOrDefault(x => x.Value == question).Key;
-            if(questionIndex == 1)
-            {
-                PreviousQuestionButton.Enabled = false;
-            }
-            else if (questionIndex == quiz.QuestionsList.Last().Key)
+            int questionIndex = kvp.Key;
+            Question question = kvp.Value;
+            if (quiz.QuestionsList.Count == 1)
             {
                 NextQuestionButton.Enabled = false;
+                PreviousQuestionButton.Enabled = false;
+                SubmitQuizButton.Visible = true;
+                SubmitQuizButton.Enabled = true;
             }
             else
             {
-                NextQuestionButton.Enabled = false;
-                PreviousQuestionButton.Enabled = false;
+                if (questionIndex == 1)
+                {
+                    PreviousQuestionButton.Enabled = false;
+                    NextQuestionButton.Enabled = true;
+                    SubmitQuizButton.Visible = false;
+                    SubmitQuizButton.Enabled = false;
+
+                }
+                else if (questionIndex == quiz.QuestionsList.Last().Key)
+                {
+                    NextQuestionButton.Enabled = false;
+                    PreviousQuestionButton.Enabled = true;
+                    SubmitQuizButton.Visible = true;
+                    SubmitQuizButton.Enabled = true;
+                }
+                else
+                {
+                    NextQuestionButton.Enabled = true;
+                    PreviousQuestionButton.Enabled = true;
+                }
             }
             currentQuestion = question;
+            currentQuestionNumber = questionIndex;
             QuestionLabel.Text = currentQuestion.QuestionText;
             Choice1RadioButton.Text = currentQuestion.Choices.ElementAt(0).ChoiceText;
             Choice2RadioButton.Text = currentQuestion.Choices.ElementAt(1).ChoiceText;
@@ -82,11 +104,23 @@ namespace Quiz.Client
         }
         private void SubmitQuizButton_Click(object sender, EventArgs e)
         {
+            var checkedButton = Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+            switch (checkedButton.Name)
+            {
+                case nameof(Choice1RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
+                case nameof(Choice2RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
+                case nameof(Choice3RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
+                case nameof(Choice4RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
+                default: { MessageBox.Show("Invalid choice"); break; }
+            }
             Program.ServiceClient.SubmitQuizData(new QuizData
             { RollNumber = Program.CurrentRollNumber,
                 QuestionChoiceList = choices
             });
-
         }
 
         private void PreviousQuestionButton_Click(object sender, EventArgs e)
@@ -105,7 +139,7 @@ namespace Quiz.Client
                 default: { MessageBox.Show("Invalid choice"); break; }
             }
             --currentQuestionNumber;
-            SetCurrentQuestion(quiz.QuestionsList[currentQuestionNumber], currentQuestionNumber);
+            SetCurrentQuestion(quiz.QuestionsList.ElementAtOrDefault(currentQuestionNumber-1));
         }
 
         private void NextQuestionButton_Click(object sender, EventArgs e)
@@ -123,8 +157,7 @@ namespace Quiz.Client
                     { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
                 default: { MessageBox.Show("Invalid choice"); break; }
             }
-            ++currentQuestionNumber;
-            SetCurrentQuestion(quiz.QuestionsList[currentQuestionNumber], currentQuestionNumber);
+            SetCurrentQuestion(quiz.QuestionsList.ElementAtOrDefault(currentQuestionNumber+1));
         }
     }
 }
