@@ -119,15 +119,18 @@ namespace Quiz.Client
                         { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
                     default: { MessageBox.Show("Invalid choice"); break; }
                 }
+                Program.ServiceClient.SubmitQuizData(new QuizData
+                {
+                    RollNumber = Program.CurrentRollNumber,
+                    QuestionChoiceList = choices
+                });
+                SubmitQuizButton.Enabled = false;
             }
             catch
             {
+                SubmitQuizButton.Enabled = true;
                 MessageBox.Show("Invalid choice");
             }
-            Program.ServiceClient.SubmitQuizData(new QuizData
-            { RollNumber = Program.CurrentRollNumber,
-                QuestionChoiceList = choices
-            });
         }
 
         private void PreviousQuestionButton_Click(object sender, EventArgs e)
@@ -146,13 +149,14 @@ namespace Quiz.Client
                     case nameof(Choice4RadioButton):
                         { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
                     default: { MessageBox.Show("Invalid choice"); break; }
+
                 }
+                SetCurrentQuestion(quiz.QuestionsList.SingleOrDefault(x => x.Key == currentQuestionNumber - 1));
             }
             catch(Exception)
             {
                 MessageBox.Show("Invalid choice");
             }
-            SetCurrentQuestion(quiz.QuestionsList.SingleOrDefault(x => x.Key == currentQuestionNumber - 1));
         }
 
         private void NextQuestionButton_Click(object sender, EventArgs e)
@@ -172,12 +176,12 @@ namespace Quiz.Client
                         { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
                     default: { MessageBox.Show("Invalid choice"); break; }
                 }
+                SetCurrentQuestion(quiz.QuestionsList.SingleOrDefault(x => x.Key == currentQuestionNumber + 1));
             }
             catch(Exception)
             {
                 MessageBox.Show("Invalid choice");
             }
-            SetCurrentQuestion(quiz.QuestionsList.SingleOrDefault(x => x.Key == currentQuestionNumber+1));
         }
     }
 }
