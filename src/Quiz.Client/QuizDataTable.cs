@@ -34,7 +34,10 @@ namespace Quiz.Client
             dt.Columns.Add("Choice 4 Text", typeof(string));
             dt.Columns.Add("Choice 4 Correct", typeof(bool));
             dt.Columns.Add("Question Id", typeof(string));
-           // dt.
+            foreach(DataColumn column in dt.Columns)
+            {
+                column.AllowDBNull = false;
+            }
             foreach(var question in questions)
             {
                 dt.Rows.Add(
