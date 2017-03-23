@@ -35,7 +35,7 @@ namespace Quiz.Client
         }
         private void LoadAdminUI()
         {
-            (new QuizEditorForm()).Show();
+            (new AdminUIForm()).Show();
             Hide();
         }
         private void LoadQuizUI()

@@ -30,11 +30,12 @@ namespace Quiz.Client
             var response = innerClient.Execute<List<QuizData>>(request);
             if (response.ErrorException != null)
             {
-                return response.Data;
+                throw new ApplicationException("Error retreiving quiz result data from server", response.ErrorException);
+
             }
             else
             {
-                throw new ApplicationException("Error retreiving quiz result data from server", response.ErrorException);
+                return response.Data;
             }
         }
 

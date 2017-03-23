@@ -125,6 +125,7 @@ namespace Quiz.Client
                     QuestionChoiceList = choices
                 });
                 SubmitQuizButton.Enabled = false;
+                MessageBox.Show($"{choices.Sum(x => (Convert.ToInt32(x.Value.IsCorrectChoice)))} marks obtained");
             }
             catch
             {

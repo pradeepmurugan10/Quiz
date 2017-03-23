@@ -1,4 +1,5 @@
 ﻿using MetroFramework.Forms;
+using Quiz.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +13,11 @@ namespace Quiz.Client
 {
     public partial class ResultsViewForm : MetroForm
     {
-        public ResultsViewForm()
+        public ResultsViewForm() : this (Program.ServiceClient.GetQuizData()) { }
+        public ResultsViewForm(IEnumerable<QuizData> results)
         {
             InitializeComponent();
+            ResultsGrid.DataSource = QuizDataTable.CreateResults(results);
         }
     }
 }

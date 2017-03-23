@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminUIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUIForm.Designer.cs">
+      <DependentUpon>AdminUIForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuizEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     <Compile Include="ResultsViewForm.Designer.cs">
       <DependentUpon>ResultsViewForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminUIForm.resx">
+      <DependentUpon>AdminUIForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuizEditorForm.resx">
       <DependentUpon>QuizEditorForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,8 +16,9 @@ namespace Quiz.Client
             dt.Columns.Add("Marks", typeof(int));
             foreach(var result in quizData)
             {
-
+                dt.Rows.Add(result.RollNumber, result.QuestionChoiceList.Sum(x => (Convert.ToInt32(x.Value.IsCorrectChoice))));
             }
+            return dt;
         }
         public static DataTable Create(SortedDictionary<int, Question> questions)
         {
