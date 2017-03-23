@@ -38,6 +38,17 @@ namespace Quiz.Client
             {
                 TimerLabel.Text = $"{Math.Round(timeLeft.TotalMinutes)} minutes left";
             }
+            else if(timeLeft.TotalSeconds == 0)
+            {
+                MessageBox.Show("Time Over. SUBMITTING !");
+                Program.ServiceClient.SubmitQuizData(new QuizData
+                {
+                    RollNumber = Program.CurrentRollNumber,
+                    QuestionChoiceList = choices
+                });
+                SubmitQuizButton.Enabled = false;
+                MessageBox.Show($"{choices.Sum(x => (Convert.ToInt32(x.Value.IsCorrectChoice)))} marks obtained");
+            }
             else
             {
                 TimerLabel.ForeColor = Color.Red;
