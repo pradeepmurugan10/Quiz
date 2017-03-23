@@ -18,7 +18,7 @@ namespace Quiz.Client
         private TimeSpan timeLeft;
         private Question currentQuestion;
         private int currentQuestionNumber = 1;
-        public Dictionary<Guid, Choice> choices;
+        private Dictionary<Guid, Choice> choices = new Dictionary<Guid, Choice> ();
         public QuizForm(Common.Models.Quiz quiz)
         {
             this.quiz = quiz;
@@ -92,53 +92,39 @@ namespace Quiz.Client
         private void PreviousQuestionButton_Click(object sender, EventArgs e)
         {
             var checkedButton = Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            try
+            switch (checkedButton.Name)
             {
-                switch (checkedButton.Name)
-                {
-                    case nameof(Choice1RadioButton):
-                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
-                    case nameof(Choice2RadioButton):
-                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
-                    case nameof(Choice3RadioButton):
-                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
-                    case nameof(Choice4RadioButton):
-                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
-                    default: { MessageBox.Show("Invalid choice"); break; }
-                }
-                --currentQuestionNumber;
-                SetCurrentQuestion(quiz.QuestionsList[currentQuestionNumber], currentQuestionNumber);
+                case  nameof(Choice1RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
+                case nameof(Choice2RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
+                case nameof(Choice3RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
+                case nameof(Choice4RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
+                default: { MessageBox.Show("Invalid choice"); break; }
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Invalid choice");
-            }
+            --currentQuestionNumber;
+            SetCurrentQuestion(quiz.QuestionsList[currentQuestionNumber], currentQuestionNumber);
         }
 
         private void NextQuestionButton_Click(object sender, EventArgs e)
         {
             var checkedButton = Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
-            try
+            switch(checkedButton.Name)
             {
-                switch (checkedButton.Name)
-                {
-                    case nameof(Choice1RadioButton):
-                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
-                    case nameof(Choice2RadioButton):
-                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
-                    case nameof(Choice3RadioButton):
-                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
-                    case nameof(Choice4RadioButton):
-                        { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
-                    default: { MessageBox.Show("Invalid choice"); break; }
-                }
-                ++currentQuestionNumber;
-                SetCurrentQuestion(quiz.QuestionsList[currentQuestionNumber], currentQuestionNumber);
+                case nameof(Choice1RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(0)); break; }
+                case nameof(Choice2RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(1)); break; }
+                case nameof(Choice3RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(2)); break; }
+                case nameof(Choice4RadioButton):
+                    { choices.Add(currentQuestion.QuestionId, currentQuestion.Choices.ElementAt(3)); break; }
+                default: { MessageBox.Show("Invalid choice"); break; }
             }
-            catch(Exception)
-            {
-                MessageBox.Show("Invalid choice");
-            }
+            ++currentQuestionNumber;
+            SetCurrentQuestion(quiz.QuestionsList[currentQuestionNumber], currentQuestionNumber);
         }
     }
 }
