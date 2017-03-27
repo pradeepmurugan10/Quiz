@@ -8,6 +8,8 @@ namespace Quiz.Client
     static class Program
     {
         public static string CurrentRollNumber { get; set; }
+        public static string CurrentRegistrationNumber { get; set; }
+        public static string CurrentStudentname { get; set; }
         public static QuizRestClient ServiceClient { get; set; }
         /// <summary>
         /// The main entry point for the application.

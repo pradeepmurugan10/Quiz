@@ -38,6 +38,7 @@
             this.PreviousQuestionButton = new MetroFramework.Controls.MetroButton();
             this.NextQuestionButton = new MetroFramework.Controls.MetroButton();
             this.SubmitQuizButton = new MetroFramework.Controls.MetroButton();
+            this.QuestionNumberlabel = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // StartQuizButton
@@ -147,11 +148,22 @@
             this.SubmitQuizButton.Visible = false;
             this.SubmitQuizButton.Click += new System.EventHandler(this.SubmitQuizButton_Click);
             // 
+            // QuestionNumberlabel
+            // 
+            this.QuestionNumberlabel.AutoSize = true;
+            this.QuestionNumberlabel.Location = new System.Drawing.Point(58, 61);
+            this.QuestionNumberlabel.Name = "QuestionNumberlabel";
+            this.QuestionNumberlabel.Size = new System.Drawing.Size(38, 19);
+            this.QuestionNumberlabel.TabIndex = 10;
+            this.QuestionNumberlabel.Text = "QNo";
+            this.QuestionNumberlabel.Visible = false;
+            // 
             // QuizForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Controls.Add(this.QuestionNumberlabel);
             this.Controls.Add(this.SubmitQuizButton);
             this.Controls.Add(this.NextQuestionButton);
             this.Controls.Add(this.PreviousQuestionButton);
@@ -182,5 +194,6 @@
         private MetroFramework.Controls.MetroButton PreviousQuestionButton;
         private MetroFramework.Controls.MetroButton NextQuestionButton;
         private MetroFramework.Controls.MetroButton SubmitQuizButton;
+        private MetroFramework.Controls.MetroLabel QuestionNumberlabel;
     }
 }

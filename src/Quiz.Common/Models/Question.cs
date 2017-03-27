@@ -8,6 +8,7 @@ namespace Quiz.Common.Models
     {
         public Guid QuestionId { get; set; }
         public string QuestionText { get; set; }
+        public string QuestionNumber { get; set; }
         public IEnumerable<Choice> Choices { get; set; }
         public Question() { }
         public Question(Guid questionId, string questionText, IEnumerable<Choice> choices)

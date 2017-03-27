@@ -26,5 +26,10 @@ namespace Quiz.Client
         {
             (new ResultsViewForm()).Show();
         }
+
+        private void ViewOnlineStudentsbutton_Click(object sender, EventArgs e)
+        {
+            (new OnlineStudentsForm()).Show();
+        }
     }
 }

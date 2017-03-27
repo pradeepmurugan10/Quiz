@@ -45,6 +45,8 @@ namespace Quiz.Client
                 Program.ServiceClient.SubmitQuizData(new QuizData
                 {
                     RollNumber = Program.CurrentRollNumber,
+                    RegisterNumber = Program.CurrentRegistrationNumber,
+                    StudentName = Program.CurrentStudentname,
                     QuestionChoiceList = choices
                 });
                 SubmitQuizButton.Enabled = false;
@@ -66,11 +68,19 @@ namespace Quiz.Client
             NextQuestionButton.Visible = true;
             PreviousQuestionButton.Visible = true;
             QuestionLabel.Visible = true;
+            QuestionNumberlabel.Visible = true;
             Choice1RadioButton.Visible = true;
             Choice2RadioButton.Visible = true;
             Choice3RadioButton.Visible = true;
             Choice4RadioButton.Visible = true;
+            
             SetCurrentQuestion(quiz.QuestionsList.First());
+            Program.ServiceClient.SubmitStudent(new QuizData
+            {
+                RollNumber = Program.CurrentRollNumber,
+                RegisterNumber = Program.CurrentRegistrationNumber,
+                StudentName = Program.CurrentStudentname,
+            });
         }
         public void SetCurrentQuestion(KeyValuePair<int,Question> kvp)
         {
@@ -99,20 +109,30 @@ namespace Quiz.Client
                     PreviousQuestionButton.Enabled = true;
                     SubmitQuizButton.Visible = true;
                     SubmitQuizButton.Enabled = true;
+                    Choice1RadioButton.Checked = false;
+                    Choice2RadioButton.Checked = false;
+                    Choice3RadioButton.Checked = false;
+                    Choice4RadioButton.Checked = false;
                 }
                 else
                 {
                     NextQuestionButton.Enabled = true;
                     PreviousQuestionButton.Enabled = true;
+                    Choice1RadioButton.Checked = false;
+                    Choice2RadioButton.Checked = false;
+                    Choice3RadioButton.Checked = false;
+                    Choice4RadioButton.Checked = false;
                 }
             }
             currentQuestion = question;
             currentQuestionNumber = questionIndex;
+            QuestionNumberlabel.Text = currentQuestionNumber.ToString();
             QuestionLabel.Text = currentQuestion.QuestionText;
             Choice1RadioButton.Text = currentQuestion.Choices.ElementAt(0).ChoiceText;
             Choice2RadioButton.Text = currentQuestion.Choices.ElementAt(1).ChoiceText;
             Choice3RadioButton.Text = currentQuestion.Choices.ElementAt(2).ChoiceText;
             Choice4RadioButton.Text = currentQuestion.Choices.ElementAt(3).ChoiceText;
+            
         }
         private void SubmitQuizButton_Click(object sender, EventArgs e)
         {
@@ -135,10 +155,13 @@ namespace Quiz.Client
                 Program.ServiceClient.SubmitQuizData(new QuizData
                 {
                     RollNumber = Program.CurrentRollNumber,
+                    RegisterNumber = Program.CurrentRegistrationNumber,
+                    StudentName = Program.CurrentStudentname,
                     QuestionChoiceList = choices
                 });
                 SubmitQuizButton.Enabled = false;
                 MessageBox.Show($"{choices.Sum(x => (Convert.ToInt32(x.Value.IsCorrectChoice)))} marks obtained");
+                
             }
             catch
             {
@@ -149,6 +172,7 @@ namespace Quiz.Client
 
         private void PreviousQuestionButton_Click(object sender, EventArgs e)
         {
+            
             var checkedButton = Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
             try
             {
@@ -175,6 +199,7 @@ namespace Quiz.Client
 
         private void NextQuestionButton_Click(object sender, EventArgs e)
         {
+            
             var checkedButton = Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
             try
             {

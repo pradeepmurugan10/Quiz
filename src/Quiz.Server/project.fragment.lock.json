@@ -5,13 +5,13 @@
       "type": "project",
       "framework": ".NETStandard,Version=v1.4",
       "compile": {
-        "bin/Debug/netstandard/LiteDB.dll": {}
+        "bin/Release/netstandard/LiteDB.dll": {}
       },
       "runtime": {
-        "bin/Debug/netstandard/LiteDB.dll": {}
+        "bin/Release/netstandard/LiteDB.dll": {}
       },
       "contentFiles": {
-        "bin/Debug/netstandard/LiteDB.pdb": {
+        "bin/Release/netstandard/LiteDB.pdb": {
           "buildAction": "None",
           "codeLanguage": "any",
           "copyToOutput": true

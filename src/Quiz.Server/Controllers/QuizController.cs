@@ -28,6 +28,16 @@ namespace Quiz.Server.Controllers
         {
             _db.GetCollection<QuizData>("results").Insert(quizData);
         }
+        [HttpGet("students")]
+        public IEnumerable<QuizData> GetOnlineStudents()
+        {
+            return _db.GetCollection<QuizData>("students").FindAll();
+        }
+        [HttpPost("student")]
+        public void SubmitStudent([FromBody]QuizData student)
+        {
+            _db.GetCollection<QuizData>("students").Insert(student);
+        }
         [HttpGet("quizzes")]
         public IEnumerable<Common.Models.Quiz> GetQuizzes()
         {

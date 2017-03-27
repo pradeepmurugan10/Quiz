@@ -30,11 +30,12 @@
         {
             this.EditQuizButton = new MetroFramework.Controls.MetroButton();
             this.ViewResultsButton = new MetroFramework.Controls.MetroButton();
+            this.ViewOnlineStudentsbutton = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // EditQuizButton
             // 
-            this.EditQuizButton.Location = new System.Drawing.Point(23, 79);
+            this.EditQuizButton.Location = new System.Drawing.Point(23, 63);
             this.EditQuizButton.Name = "EditQuizButton";
             this.EditQuizButton.Size = new System.Drawing.Size(254, 70);
             this.EditQuizButton.TabIndex = 0;
@@ -44,7 +45,7 @@
             // 
             // ViewResultsButton
             // 
-            this.ViewResultsButton.Location = new System.Drawing.Point(23, 184);
+            this.ViewResultsButton.Location = new System.Drawing.Point(23, 210);
             this.ViewResultsButton.Name = "ViewResultsButton";
             this.ViewResultsButton.Size = new System.Drawing.Size(254, 67);
             this.ViewResultsButton.TabIndex = 1;
@@ -52,11 +53,22 @@
             this.ViewResultsButton.UseSelectable = true;
             this.ViewResultsButton.Click += new System.EventHandler(this.ViewResultsButton_Click);
             // 
+            // ViewOnlineStudentsbutton
+            // 
+            this.ViewOnlineStudentsbutton.Location = new System.Drawing.Point(23, 139);
+            this.ViewOnlineStudentsbutton.Name = "ViewOnlineStudentsbutton";
+            this.ViewOnlineStudentsbutton.Size = new System.Drawing.Size(254, 56);
+            this.ViewOnlineStudentsbutton.TabIndex = 2;
+            this.ViewOnlineStudentsbutton.Text = "View Online Students";
+            this.ViewOnlineStudentsbutton.UseSelectable = true;
+            this.ViewOnlineStudentsbutton.Click += new System.EventHandler(this.ViewOnlineStudentsbutton_Click);
+            // 
             // AdminUIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Controls.Add(this.ViewOnlineStudentsbutton);
             this.Controls.Add(this.ViewResultsButton);
             this.Controls.Add(this.EditQuizButton);
             this.Name = "AdminUIForm";
@@ -70,5 +82,6 @@
 
         private MetroFramework.Controls.MetroButton EditQuizButton;
         private MetroFramework.Controls.MetroButton ViewResultsButton;
+        private MetroFramework.Controls.MetroButton ViewOnlineStudentsbutton;
     }
 }

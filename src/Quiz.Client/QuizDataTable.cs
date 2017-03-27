@@ -13,13 +13,28 @@ namespace Quiz.Client
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Roll Number", typeof(string));
+            dt.Columns.Add("Register Number", typeof(string));
+            dt.Columns.Add("Name",typeof(string));    
             dt.Columns.Add("Marks", typeof(int));
             foreach(var result in quizData)
             {
-                dt.Rows.Add(result.RollNumber, result.QuestionChoiceList.Sum(x => (Convert.ToInt32(x.Value.IsCorrectChoice))));
+                dt.Rows.Add(result.RollNumber, result.RegisterNumber,result.StudentName, result.QuestionChoiceList.Sum(x => (Convert.ToInt32(x.Value.IsCorrectChoice))));
             }
             return dt;
         }
+        public static DataTable OnlineStudents(IEnumerable<QuizData> students)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Roll Number", typeof(string));
+            dt.Columns.Add("Register Number", typeof(string));
+            dt.Columns.Add("Name", typeof(string));       
+            foreach(var student in students)
+            {
+                dt.Rows.Add(student.RollNumber, student.RegisterNumber, student.StudentName);
+            }
+            return dt;
+        }
+        
         public static DataTable Create(SortedDictionary<int, Question> questions)
         {
             DataTable dt = new DataTable();
@@ -44,6 +59,7 @@ namespace Quiz.Client
             {
                 dt.Rows.Add(
                     question.Key,
+                    question.Value.QuestionNumber,
                     question.Value.QuestionText,
                     question.Value.Choices.ElementAt(0).ChoiceText,
                     question.Value.Choices.ElementAt(0).IsCorrectChoice,

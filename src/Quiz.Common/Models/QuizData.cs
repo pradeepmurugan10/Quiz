@@ -10,6 +10,8 @@ namespace Quiz.Common.Models
         public QuizData()
         { }
         public string RollNumber { get; set; }
+        public string StudentName { get; set; }
+        public string RegisterNumber { get; set; }
         public Dictionary<Guid,Choice> QuestionChoiceList { get; set; }
     }
 }

@@ -38,6 +38,32 @@ namespace Quiz.Client
                 return response.Data;
             }
         }
+        public IEnumerable<QuizData> GetOnlineStudents()
+        {
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("students", Method.GET);
+            request.RequestFormat = DataFormat.Json;
+            var response = innerClient.Execute<List<QuizData>>(request);
+            if (response.ErrorException != null)
+            {
+                throw new ApplicationException("Error retreiving quiz result data from server", response.ErrorException);
+
+            }
+            else
+            {
+                return response.Data;
+            }
+        }
+        public void SubmitStudent(QuizData student)
+        {
+            var request = new RestSharp.Newtonsoft.Json.RestRequest("student", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(student);
+            var response = innerClient.Execute(request);
+            if (response.ErrorException != null)
+            {
+                throw new ApplicationException("Error submitting quiz result data to server", response.ErrorException);
+            }
+        }
 
         public void SubmitQuizData(QuizData quizData)
         {
